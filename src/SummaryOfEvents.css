@@ -1,0 +1,21 @@
+.SummarisedEvents {
+    display: block;
+    width: 100%;
+    margin: 0.3em 0;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.SummarisedEvents:hover,
+.SummarisedEvents:focus {
+    background-color: var(--tertiary-dark-color);
+}
+
+#SummaryOfEvents {
+    height: 100%;
+    overflow: auto;
+    min-height: 12rem;
+    justify-self: stretch;
+    align-self: stretch;
+    border: 0.25em solid var(--tertiary-dark-color);
+}

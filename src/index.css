@@ -1,13 +1,54 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+    --primary-dark-color: #242424;
+    --primary-light-color: #ffffff;
+    --secondary-light-color: #33ff00;
+    --secondary-dark-color: #434942;
+    --tertiary-light-color: #868686;
+    --tertiary-dark-color: #333333;
+    --quaternary-light-color: #636363;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+    color: inherit;
+    font-style: inherit;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--primary-dark-color);
+    color: var(--primary-light-color);
+}
+
+button,
+input,
+option,
+select {
+    background-color: var(--secondary-dark-color);
+    font-size: inherit;
+    font-style: inherit;
+}
+
+h1 {
+    line-height: 1.2;
+}
+
+h2 {
+    line-height: 1.3;
+}
+
+h3 {
+    line-height: 1.4;
+}
+
+h4 {
+    line-height: 1.5;
+}
+
+p {
+    line-height: 1.7;
 }

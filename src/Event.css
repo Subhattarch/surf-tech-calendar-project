@@ -1,0 +1,64 @@
+#Events {
+    width: calc(100% - 6.4ch);
+    height: 90%;
+    min-height: 20rem;
+    background-color: var(--secondary-dark-color);
+    padding: 2em;
+    padding-top: 0;
+}
+
+.focus {
+    z-index: 100;
+}
+
+.event.focus {
+    cursor: default;
+    pointer-events: none;
+    background-color: var(--secondary-light-color);
+    box-shadow: 0 0.17em 0.3em 0 rgba(0, 0, 0, 0.6);
+}
+
+.event {
+    width: calc(95% - 6ch);
+    left: 6ch;
+    background-color: rgb(19, 196, 49);
+    border: 0.19em solid var(--tertiary-dark-color);
+    color: var(--primary-dark-color);
+    border-radius: 1em;
+    cursor: pointer;
+    padding: 1em 0.1em;
+}
+
+.event:hover,
+.event:focus {
+    background-color: var(--secondary-light-color);
+}
+
+.event h3,
+.event .time {
+    text-align: center;
+}
+
+.event-container {
+    height: calc(100% - 6rem);
+    border-radius: 1em;
+    border: 0.25em solid var(--primary-dark-color);
+}
+
+.event-container p {
+    margin: 0;
+}
+
+#Events button {
+    border: 0.25em solid var(--tertiary-light-color);
+    outline: none;
+    margin: 0.3em;
+    padding: 0.15em 1.5ch;
+    cursor: pointer;
+}
+
+#Events button:hover,
+#Events button:focus {
+    background-color: var(--tertiary-dark-color);
+    border: 0.25em solid var(--primary-dark-color);
+}

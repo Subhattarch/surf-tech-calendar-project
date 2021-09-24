@@ -1,0 +1,134 @@
+#calendar {
+    border: 0.3em solid;
+    border-radius: 1em;
+    height: -moz-max-content;
+    height: max-content;
+    width: -moz-max-content;
+    width: max-content;
+}
+
+#year-wraper {
+    position: relative;
+    width: fit-content;
+    font-size: 2rem;
+    border-right: 0.3em solid var(--primary-light-color);
+    margin-right: 0.2em;
+    padding-right: 0.5em;
+    display: inline-block;
+}
+#year-month-wraper {
+    font-size: 1.8rem;
+    border-bottom: 0.16em solid;
+    padding: 0.7rem;
+}
+#year-month-wraper select {
+    display: inline-block;
+    margin-left: 0.5em;
+    width: fit-content;
+    position: relative;
+    bottom: 0.3em;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+#year-wraper input {
+    font-size: inherit;
+    font-family: inherit;
+}
+#year {
+    border: none;
+    display: inline-block;
+    width: 8ch;
+    font-weight: bold;
+    color: var(--secondary-light-color);
+    background-color: var(--primary-dark-color);
+}
+#change-year {
+    display: block;
+    height: 1.5em;
+    position: absolute;
+    width: 1.4ch;
+    top: -0.1em;
+    right: 0.5em;
+    background-color: var(--primary-dark-color);
+}
+.increament,
+.decreament {
+    height: 0px;
+    width: 0px;
+    color: var(--primary-light-color);
+    border: none;
+    border-left: 0.9em solid var(--primary-dark-color);
+    border-right: 0.9em solid var(--primary-dark-color);
+    padding: 0;
+    display: block;
+    position: absolute;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.increament {
+    border-bottom: 0.9em solid;
+    top: 0em;
+}
+
+.decreament {
+    border-top: 0.9em solid;
+    bottom: 0em;
+    box-shadow: none;
+}
+
+#calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(4ch, 1fr));
+    gap: 1em;
+    padding: 0.5em;
+    width: -moz-fit-content;
+    width: fit-content;
+}
+
+@media (max-width: 50ch) {
+    #calendar-grid {
+        gap: 0.3em;
+        padding: 0.3em;
+    }
+}
+
+.not-current {
+    opacity: 0.6;
+}
+
+.calendar-cell {
+    cursor: pointer;
+    display: block;
+    align-self: center;
+    text-align: center;
+    border: none;
+    background: none;
+    font-family: inherit;
+    margin: 0.3em;
+}
+#month {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+button.selected {
+    background-color: var(--tertiary-dark-color);
+    color: var(--secondary-light-color);
+}
+
+.calendar-cell:hover,
+.calendar-cell:focus {
+    background-color: var(--tertiary-dark-color);
+    margin: 0;
+    border: 0.3em solid var(--tertiary-light-color);
+    outline: none;
+    border-radius: 0.3em;
+}
+
+.day {
+    cursor: default;
+    pointer-events: none;
+}

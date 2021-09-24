@@ -1,0 +1,69 @@
+#sign-in-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+#sign-in-container h2 {
+    color: var(--secondary-light-color);
+}
+
+#sign-in {
+    display: block;
+    position: fixed;
+    max-height: 100vh;
+    overflow: auto;
+    top: 2em;
+    left: 0;
+    right: 0;
+    bottom: 2em;
+    margin: auto;
+    padding: 1em;
+    width: -moz-min-content;
+    width: min-content;
+    max-height: -moz-min-content;
+    max-height: min-content;
+    padding: 2em;
+    background-color: var(--tertiary-dark-color);
+}
+
+#sign-in input,
+#sign-in button {
+    background-color: var(--secondary-dark-color);
+    font-family: inherit;
+    border: 0.2em solid var(--primary-dark-color);
+    outline: none;
+}
+
+#sign-in input:focus,
+#sign-in input:hover,
+#sign-in button:focus,
+#sign-in button:focus {
+    border: 0.2em solid var(--quaternary-light-color);
+    background-color: var(--tertiary-dark-color);
+}
+
+#name {
+    width: 18ch;
+}
+
+#password {
+    width: 18ch;
+}
+
+#sign-in .change-method {
+    display: inline;
+    border: none;
+    background-color: none;
+    text-decoration: underline;
+}
+#sign-in .change-method:hover,
+#sign-in .change-method:focus {
+    border: none;
+}

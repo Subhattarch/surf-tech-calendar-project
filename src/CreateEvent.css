@@ -1,0 +1,78 @@
+#create-event {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+#create-event h2 {
+    color: var(--secondary-light-color);
+}
+
+#create-event form {
+    display: block;
+    position: fixed;
+    max-height: 100vh;
+    overflow: auto;
+    top: 2em;
+    left: 0;
+    right: 0;
+    bottom: 2em;
+    margin: auto;
+    outline: 0.25em solid var(--quaternary-light-color);
+    padding: 1em;
+    width: -moz-min-content;
+    width: min-content;
+    height: -moz-min-content;
+    height: min-content;
+    padding: 2em;
+    background-color: var(--tertiary-dark-color);
+}
+
+#create-event textarea,
+#create-event input,
+#create-event select,
+#create-event button {
+    background-color: var(--secondary-dark-color);
+    font-family: inherit;
+    border: 0.2em solid var(--primary-dark-color);
+    outline: none;
+}
+
+#create-event textarea:hover,
+#create-event input:hover,
+#create-event select:hover,
+#create-event textarea:focus,
+#create-event input:focus,
+#create-event select:focus,
+#create-event button:hover,
+#create-event button:focus {
+    border: 0.2em solid var(--quaternary-light-color);
+    background-color: var(--tertiary-dark-color);
+}
+
+#create-event option:hover,
+#create-event option:focus {
+    background-color: var(--tertiary-dark-color);
+}
+
+#title {
+    width: 18ch;
+}
+
+.number {
+    display: inline-block;
+    width: 5ch;
+}
+
+@media (max-width: 75ch) {
+    #create-event textarea {
+        display: inline-block;
+        width: 40ch;
+    }
+}
