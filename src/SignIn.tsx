@@ -76,6 +76,15 @@ const SignIn = ({
                             type='password'
                             pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$'
                             required={true}
+                            onChange={(): void => {
+                                $("#password").attr(
+                                    "pattern",
+                                    "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$"
+                                );
+                                (
+                                    $("#password")[0] as HTMLInputElement
+                                ).setCustomValidity("");
+                            }}
                             onInvalid={(
                                 e: FormEvent<HTMLInputElement>
                             ): void => {
@@ -148,6 +157,13 @@ const SignIn = ({
                                     errorRef.current = true;
                                     $("#name").attr("pattern", "");
                                     e.preventDefault();
+                                    return;
+                                }
+                                if (!o?.isValidPassword) {
+                                    $("#password").attr("pattern", "");
+                                    (
+                                        $("#password")[0] as HTMLInputElement
+                                    ).setCustomValidity("wrong password");
                                     return;
                                 }
                                 setUser(o?.name);
