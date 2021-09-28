@@ -28,7 +28,7 @@ const header = ({
                         return;
                     }
                     post(
-                        "/calendar/users/save",
+                        "/calendar/users/qsave",
                         {
                             user,
                             ...allEvents,

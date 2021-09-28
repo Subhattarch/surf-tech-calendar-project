@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { get, post } from "jquery";
+import React, { useRef } from "react";
+import { get } from "jquery";
 import useState from "./UseState";
 import "./App.css";
 import Calendar from "./calendar";
@@ -66,24 +66,7 @@ function App(): JSX.Element {
     const createEvent = (): void => toggleCreation(true);
 
     const dateStartAt = new Date(year, month, 1).getDay();
-    useEffect((): void => {
-        if (user === "unonymous") return;
-        post(
-            "/calendar/users/save",
-            {
-                user,
-                ...allEvents,
-            },
-            (): void => {
-                setMessage({ text: "saved" });
-            }
-        ).fail((): void => {
-            setMessage({
-                text: "save failed",
-                error: true,
-            });
-        });
-    }, [user, allEvents, setMessage]);
+
     return (
         <div id='App'>
             <Message message={message} setMessage={setMessage} />
@@ -133,6 +116,7 @@ function App(): JSX.Element {
                     toggleCreation={toggleCreation}
                     changeEventShowed={setShowedEvents}
                     setFocus={setFocused}
+                    setMessage={setMessage}
                 />
             )}
             {isSigningIn && <SignIn setUser={setUser} setSignIn={setSignIn} />}

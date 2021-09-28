@@ -40,7 +40,7 @@ const Events = ({
                     return allEvents[dataName];
                 }
                 get(
-                    `./calender/${user}-${dataName}.json`,
+                    `./calendar/${user}-${dataName}.json`,
                     (data: Array<Event>): void => {
                         const Data: AllEvents = {};
                         Data[dataName] = data;
@@ -62,13 +62,8 @@ const Events = ({
     }, [Ref, current, dataName, setAllEvents, setEvents]);
 
     useEffect((): void => {
-        if (allEvents[dataName] != null) {
-            Ref.current = allEvents[dataName];
-            setEvents(allEvents[dataName]);
-            return;
-        }
         get(
-            `./calender/${user}-${dataName}.json`,
+            `./calendar/${user}-${dataName}.json`,
             (data: Array<Event>): void => {
                 Ref.current = data;
                 const Data: AllEvents = {};
@@ -79,29 +74,20 @@ const Events = ({
             "json"
         ).fail((): void => {
             console.log("no previous data");
+            if (
+                allEvents[dataName] != null &&
+                (allEvents[dataName] as Event[])?.length === 0
+            ) {
+                Ref.current = allEvents[dataName];
+                setEvents(allEvents[dataName]);
+                return;
+            }
         });
         Ref.current = [];
         setEvents([]);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [dataName, Ref, user]);
-    useEffect((): void => {
-        get(
-            `./calender/${user}-${dataName}.json`,
-            (data: Array<Event>): void => {
-                Ref.current = data;
-                const Data: AllEvents = {};
-                const prevData = allEvents[dataName];
-                Data[dataName] = Array.isArray(prevData)
-                    ? [...prevData, ...data]
-                    : data;
-                setAllEvents(Data);
-                setEvents(Data[dataName]);
-            },
-            "json"
-        ).fail((): void => {
-            console.log("no previous data");
-        });
-    });
+    }, [dataName, user]);
+
     if (!Ref.current) Ref.current = events;
     return (
         <div id='Events'>

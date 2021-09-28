@@ -13,6 +13,7 @@ const SignIn = ({
 }): JSX.Element => {
     const errorRef = useRef(false);
     const serverFault = useRef(false);
+    const invalidPassRef = useRef(false);
     const [haveAcount, setHaveAcount]: State<boolean> = UseState<boolean>(true);
     return (
         <div id='sign-in-container' onClick={(): void => setSignIn(false)}>
@@ -25,9 +26,9 @@ const SignIn = ({
                 <h2>{haveAcount ? "Sign In" : "Sign Up"}</h2>
                 <form
                     id='sign-in-form'
-                    onSubmit={(e: FormEvent<HTMLFormElement>): void =>
-                        e.preventDefault()
-                    }
+                    onSubmit={(e: FormEvent<HTMLFormElement>): void => {
+                        e.preventDefault();
+                    }}
                 >
                     <div>
                         <label htmlFor='name'>name</label>
@@ -36,6 +37,8 @@ const SignIn = ({
                             onChange={(
                                 e: FormEvent<HTMLInputElement>
                             ): void => {
+                                serverFault.current = false;
+                                errorRef.current = false;
                                 $("#name").attr({
                                     pattern: "^\\w*$",
                                 });
@@ -49,18 +52,8 @@ const SignIn = ({
                                 const target = $(
                                     "#name"
                                 )[0] as HTMLInputElement;
-                                if (errorRef.current) {
-                                    errorRef.current = false;
-                                    target.setCustomValidity(
-                                        `name ${
-                                            haveAcount
-                                                ? "doesn't exists"
-                                                : "exists"
-                                        }`
-                                    );
-                                    return;
-                                }
-                                if (!serverFault.current)
+
+                                if (!serverFault.current && !errorRef.current)
                                     target.setCustomValidity(
                                         "name must be filled and have alpha numeric"
                                     );
@@ -77,6 +70,7 @@ const SignIn = ({
                             pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$'
                             required={true}
                             onChange={(): void => {
+                                invalidPassRef.current = false;
                                 $("#password").attr(
                                     "pattern",
                                     "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$"
@@ -88,6 +82,7 @@ const SignIn = ({
                             onInvalid={(
                                 e: FormEvent<HTMLInputElement>
                             ): void => {
+                                if (invalidPassRef.current) return;
                                 const target = $(
                                     "#password"
                                 )[0] as HTMLInputElement;
@@ -144,8 +139,8 @@ const SignIn = ({
                                 const o = await get(
                                     "/calendar/sign-in-up",
                                     {
-                                        name: "none",
-                                        password: "none",
+                                        name: $("#name").val(),
+                                        password: $("#password").val(),
                                         haveAcount,
                                     },
                                     data => {
@@ -156,17 +151,29 @@ const SignIn = ({
                                 if (!o?.isValid && !o?.name) {
                                     errorRef.current = true;
                                     $("#name").attr("pattern", "");
+                                    (
+                                        $("#name")[0] as HTMLInputElement
+                                    ).setCustomValidity(
+                                        `name ${
+                                            haveAcount
+                                                ? "doesn't exists"
+                                                : "exists"
+                                        }`
+                                    );
                                     e.preventDefault();
                                     return;
                                 }
                                 if (!o?.isValidPassword) {
+                                    invalidPassRef.current = true;
                                     $("#password").attr("pattern", "");
                                     (
                                         $("#password")[0] as HTMLInputElement
                                     ).setCustomValidity("wrong password");
+                                    e.preventDefault();
                                     return;
                                 }
                                 setUser(o?.name);
+                                setSignIn(false);
                             } catch (err) {
                                 $("#name").attr({
                                     pattern: "",

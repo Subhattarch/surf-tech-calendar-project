@@ -19,11 +19,11 @@ const Message = ({
     useEffect((): void => {
         if (pRef.current == null || !text) return;
         const p = $(pRef.current as HTMLParagraphElement);
-        p.css("transform", "translate(50%, -200%)");
+        p.css("transform", "translate(50%, -4em)");
         setTimeout((): void => {
             p.css("transform", "translate(50%)");
             setTimeout((): void => {
-                p.css("transform", "translate(50%, -200%)");
+                p.css("transform", "translate(50%, -4em)");
                 setTimeout((): void => {
                     setMessage({
                         text: "",
@@ -37,7 +37,7 @@ const Message = ({
         <p
             id='message'
             style={{
-                transform: "translate(50%, -200%)",
+                transform: "translate(50%, -4em)",
                 position: "fixed",
                 top: "0.1em",
                 right: "50%",

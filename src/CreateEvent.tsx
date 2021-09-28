@@ -15,6 +15,10 @@ interface CreateEventProps {
     Ref: MutableRefObject<Event[] | null>;
     changeEventShowed: SetState<defaultArray<number>>;
     setFocus: SetState<Array<number>>;
+    setMessage: SetState<{
+        text: string;
+        error?: boolean;
+    }>;
     toggleCreation: (value: SetStateAction<boolean>) => void;
 }
 
@@ -23,6 +27,7 @@ const CreateEvent = ({
     toggleCreation,
     changeEventShowed,
     setFocus,
+    setMessage,
 }: CreateEventProps): JSX.Element => {
     const [StartHour, setStartHour]: State<number> = useState<number>(0);
     const [StartMinute, setStartMinute]: State<number> = useState<number>(0);
@@ -93,6 +98,20 @@ const CreateEvent = ({
                         );
                         return;
                     }
+
+                    if (
+                        (EventsAtSameStart as Event).find(
+                            event =>
+                                event.title === EventData.title &&
+                                event.description === EventData.description
+                        )
+                    ) {
+                        setMessage({
+                            text: "two events can't have identicle title and description",
+                            error: true,
+                        });
+                    }
+
                     Ref.current[indexOfEventsAtSameStart] = [
                         ...(EventsAtSameStart as Event),
                         EventData,
