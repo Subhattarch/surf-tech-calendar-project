@@ -45,7 +45,7 @@ function App(): JSX.Element {
 
     const [user, setUser]: State<string> = useState<string>(
         ((): string => {
-            let String = "unonymous";
+            let String = "deafault-user";
             get("/calendar/user", (data: string): void => {
                 String = data;
                 setUser(String);

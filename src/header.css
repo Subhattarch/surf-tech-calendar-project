@@ -1,7 +1,8 @@
 header {
     grid-column: 1 / -1;
-    background-color: var(--tertiary-dark-color);
-    width: 100vw;
+    background-color: var(--bg-colour-m);
+    box-shadow: 0 0 0.5em 0 var(--fn-colour-m);
+    width: calc(100vw - 0.8ch);
     margin: 0;
     text-align: right;
     justify-self: center;
@@ -11,12 +12,12 @@ header {
 header button {
     margin-right: 1ch;
     font-size: 1.3rem;
-    border: 0.25em solid var(--tertiary-light-color);
+    border: 0.25em solid var(--fn-colour-t);
     cursor: pointer;
 }
 
 header button:hover,
 header button:focus {
-    border: 0.25em solid var(--primary-light-color);
-    background-color: var(--primary-dark-color);
+    border: 0.25em solid var(--fn-colour-m);
+    background-color: var(--bg-colour-m);
 }

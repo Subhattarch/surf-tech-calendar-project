@@ -1,8 +1,9 @@
 #Events {
-    width: calc(100% - 6.4ch);
-    height: 90%;
+    width: 44ch;
+    max-width: 97vw;
+    height: calc(100vh - 6rem);
     min-height: 20rem;
-    background-color: var(--secondary-dark-color);
+    background-color: var(--bg-colour-s);
     padding: 2em;
     padding-top: 0;
 }
@@ -14,16 +15,16 @@
 .event.focus {
     cursor: default;
     pointer-events: none;
-    background-color: var(--secondary-light-color);
+    background-color: var(--fn-colour-s);
     box-shadow: 0 0.17em 0.3em 0 rgba(0, 0, 0, 0.6);
 }
 
 .event {
     width: calc(95% - 6ch);
     left: 6ch;
-    background-color: rgb(19, 196, 49);
-    border: 0.19em solid var(--tertiary-dark-color);
-    color: var(--primary-dark-color);
+    background-color: var(--bg-colour-t);
+    border: 0.19em solid var(--bg-colour-m);
+    color: var(--fn-colour-m);
     border-radius: 1em;
     cursor: pointer;
     padding: 1em 0.1em;
@@ -31,7 +32,7 @@
 
 .event:hover,
 .event:focus {
-    background-color: var(--secondary-light-color);
+    background-color: var(--fn-colour-s);
 }
 
 .event h3,
@@ -41,8 +42,10 @@
 
 .event-container {
     height: calc(100% - 6rem);
-    border-radius: 1em;
-    border: 0.25em solid var(--primary-dark-color);
+    /* border-radius: 1em; */
+    /* border: 0.25em solid var(--bg-colour-m); */
+    box-shadow: 0.6em 0 0.6em -0.6em var(--fn-colour-m),
+        -0.6em 0 0.6em -0.6em var(--fn-colour-m);
 }
 
 .event-container p {
@@ -50,15 +53,17 @@
 }
 
 #Events button {
-    border: 0.25em solid var(--tertiary-light-color);
+    border: /*0.25em solid var(--fn-colour-t)*/ none;
     outline: none;
     margin: 0.3em;
     padding: 0.15em 1.5ch;
     cursor: pointer;
+    border-radius: 1ch;
+    background-color: var(--bg-colour-t);
 }
 
 #Events button:hover,
 #Events button:focus {
-    background-color: var(--tertiary-dark-color);
-    border: 0.25em solid var(--primary-dark-color);
+    background-color: var(--fn-colour-t);
+    /* border: 0.25em solid var(--bg-colour-m); */
 }

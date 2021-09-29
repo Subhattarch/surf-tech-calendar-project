@@ -11,7 +11,7 @@
 }
 
 #create-event h2 {
-    color: var(--secondary-light-color);
+    color: var(--fn-colour-s);
 }
 
 #create-event form {
@@ -24,23 +24,23 @@
     right: 0;
     bottom: 2em;
     margin: auto;
-    outline: 0.25em solid var(--quaternary-light-color);
+    outline: 0.25em solid var(--fn-colour-q);
     padding: 1em;
     width: -moz-min-content;
     width: min-content;
     height: -moz-min-content;
     height: min-content;
     padding: 2em;
-    background-color: var(--tertiary-dark-color);
+    background-color: var(--bg-colour-s);
 }
 
 #create-event textarea,
 #create-event input,
 #create-event select,
 #create-event button {
-    background-color: var(--secondary-dark-color);
+    background-color: var(--bg-colour-m);
     font-family: inherit;
-    border: 0.2em solid var(--primary-dark-color);
+    border: 0.2em solid var(--bg-colour-t);
     outline: none;
 }
 
@@ -52,13 +52,13 @@
 #create-event select:focus,
 #create-event button:hover,
 #create-event button:focus {
-    border: 0.2em solid var(--quaternary-light-color);
-    background-color: var(--tertiary-dark-color);
+    border: 0.2em solid var(--fn-colour-t);
+    /* background-color: var(--bg-colour-s); */
 }
 
 #create-event option:hover,
 #create-event option:focus {
-    background-color: var(--tertiary-dark-color);
+    background-color: var(--bg-colour-t);
 }
 
 #title {

@@ -77,7 +77,7 @@ const Calendar = ({
                 <span
                     className='calendar-cell day'
                     style={{
-                        color: "red",
+                        color: "orangered",
                     }}
                 >
                     Sun
@@ -90,7 +90,7 @@ const Calendar = ({
                 <span
                     className='calendar-cell day'
                     style={{
-                        color: "cyan",
+                        color: "orange",
                     }}
                 >
                     Sat
@@ -102,11 +102,11 @@ const Calendar = ({
                             style={
                                 index % 7 === 0
                                     ? {
-                                          color: "red",
+                                          color: "orangered",
                                       }
                                     : index % 7 === 6
                                     ? {
-                                          color: "cyan",
+                                          color: "orange",
                                       }
                                     : {}
                             }
@@ -139,11 +139,11 @@ const Calendar = ({
                             style={
                                 (date + dateStartAt - 1) % 7 === 0
                                     ? {
-                                          color: "red",
+                                          color: "orangered",
                                       }
                                     : (date + dateStartAt) % 7 === 0
                                     ? {
-                                          color: "cyan",
+                                          color: "orange",
                                       }
                                     : {}
                             }
@@ -160,11 +160,11 @@ const Calendar = ({
                             style={
                                 (date + dateRange + dateStartAt - 1) % 7 === 0
                                     ? {
-                                          color: "red",
+                                          color: "orangered",
                                       }
                                     : (date + dateRange + dateStartAt) % 7 === 0
                                     ? {
-                                          color: "cyan",
+                                          color: "orange",
                                       }
                                     : {}
                             }

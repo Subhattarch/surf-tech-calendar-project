@@ -1,11 +1,14 @@
 :root {
-    --primary-dark-color: #242424;
-    --primary-light-color: #ffffff;
-    --secondary-light-color: #33ff00;
-    --secondary-dark-color: #434942;
-    --tertiary-light-color: #868686;
-    --tertiary-dark-color: #333333;
-    --quaternary-light-color: #636363;
+    --bg-colour-m: /*#242424*/ #fff;
+    --fn-colour-m: /*#ffffff*/ rgba(0, 0, 0, 0.658);
+    --fn-colour-s: /*#33ff00*/ rgb(255, 67, 67);
+    --bg-colour-s: /*#434942*/ #fffbfa;
+    --fn-colour-t: /*#868686*/ #00dbdb;
+    --bg-colour-t: /*#333333*/ #b9fff6;
+    --fn-colour-q: #636363;
+    --bg-colour-q: rgb(79, 0, 182);
+    --fn-colour-f: rgb(201, 201, 201);
+    --bg-colour-f: rgb(240, 240, 240);
 }
 
 * {
@@ -20,15 +23,15 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: var(--primary-dark-color);
-    color: var(--primary-light-color);
+    background-color: var(--bg-colour-m);
+    color: var(--fn-colour-m);
 }
 
 button,
 input,
 option,
 select {
-    background-color: var(--secondary-dark-color);
+    background-color: var(--bg-colour-s);
     font-size: inherit;
     font-style: inherit;
 }

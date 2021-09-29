@@ -1,14 +1,17 @@
 .SummarisedEvents {
     display: block;
     width: 100%;
-    margin: 0.3em 0;
+    margin: 0.6em 0;
     cursor: pointer;
     pointer-events: all;
+    background-color: var(--bg-colour-t);
+    border: none;
+    border-radius: 1em;
 }
 
 .SummarisedEvents:hover,
 .SummarisedEvents:focus {
-    background-color: var(--tertiary-dark-color);
+    background-color: /*var(--bg-colour-t)*/ var(--fn-colour-s);
 }
 
 #SummaryOfEvents {
@@ -17,5 +20,6 @@
     min-height: 12rem;
     justify-self: stretch;
     align-self: stretch;
-    border: 0.25em solid var(--tertiary-dark-color);
+    max-height: calc(100vh - 6rem);
+    /* border: 0.25em solid var(--bg-colour-t); */
 }
